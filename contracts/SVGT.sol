@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.10;
+pragma solidity 0.8.11;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -172,11 +172,11 @@ contract SVGT is ERC721URIStorage, Ownable {
                                 "NFVG", // You can add whatever name here
                                 '", "description":"Non Fungible Vector Graphic - #',
                                 uint2str(_tokenId),
-                                ' - Color spaces through time and electricity", "attributes":"',
+                                ' - Color spaces through time and electricity", "attributes": [{ "trait_type": "Color_1", "value": "',
                                 attr1,
-                                " ",
+                                '" },{"trait_type": "Color_2", "value": "',
                                 attr2,
-                                '", "image":"',
+                                '" }], "background_color": "#FFFFFF", "image":"',
                                 imageURI,
                                 '"}'
                             )

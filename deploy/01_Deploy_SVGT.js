@@ -11,7 +11,7 @@ module.exports = async ({
     const { deployer } = await getNamedAccounts()
     const chainId = await getChainId()
 
-    const filepath = "./svgs/svgt/svgt-snippet.svg"
+    const filepath = "./svgs/svgt/svgt-snippet.txt"
     const svg = fs.readFileSync(filepath, { encoding: "utf8" })
 
     const args = [svg];
