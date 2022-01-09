@@ -1,0 +1,514 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .gg {
+      transform-origin: 50%;
+      transform: scale(0.9)
+    }
+
+    @keyframes animFromTop {
+      0% {
+        transform: translate(0, -400px)
+      }
+    }
+
+    @keyframes animLine {
+      to {
+        transform: translate(0, calc(var(--i) + 50px));
+      }
+    }
+
+    @keyframes animLine1 {
+      to {
+        transform: translate(0, calc(var(--i) + 50px));
+      }
+    }
+
+    @keyframes animLine2 {
+      to {
+        transform: translate(0, calc(var(--i) + 50px));
+      }
+    }
+
+    @keyframes animLine3 {
+      to {
+        transform: translate(0, calc(var(--i) + 50px));
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+
+    .text,
+    .text2 {
+      font-family: monospace;
+      font-size: 1.3em;
+      font-weight: bolder;
+      fill: var(--c1)
+    }
+
+    .t2 {
+      font-size: 2em;
+      filter: url(#select-highlight);
+    }
+
+    .text {
+      animation: fadeOut 0s 3.5s linear forwards
+    }
+
+    .text2 {
+      opacity: 0;
+      animation: fadeIn 0s 3.5s linear forwards
+    }
+
+    .lc {
+      fill: var(--c2);
+      stroke: var(--c2)
+    }
+
+    .ic {
+      fill: var(--c3);
+      stroke: var(--c3)
+    }
+
+    .tc {
+      fill: var(--c6);
+      stroke: var(--c6)
+    }
+
+    .S {
+      transform: translate(0, var(--i));
+      animation: var(--anim);
+    }
+
+    @keyframes float {
+
+      0% {
+        transform: translateX(50vw);
+      }
+
+      20% {
+        transform: translate(0px 20px);
+      }
+
+      22%,
+      66%,
+      90% {
+        transform: translateY(20px);
+      }
+
+      44%,
+      80% {
+        transform: translateY(0px);
+      }
+
+      100% {
+        transform: translateY(-200px);
+      }
+    }
+
+    #V {
+      animation: var(--anim2);
+    }
+  </style>
+  <style id="styletemplate">
+    :root {
+      --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: animLine 0.5s 3s forwards;
+      --anim: none;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+
+    .A1 {
+      animation: animFromTop 3s forwards;
+    }
+
+    .A2,
+    .A3,
+    .A4,
+    .A5,
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }
+  </style>
+  <path d="M0 0v500h500V0z" fill="var(--c1)" />
+  <defs>
+    <filter id="filter">
+      <feTurbulence type="turbulence" baseFrequency="0" numOctaves="1" result="turbulence" seed="50">
+        <animate attributeName="baseFrequency" values="0; 0 0.0001; 0 0.005; 0 0.00001; 0; 0" begin="6s" dur="12s"
+          repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="10" xChannelSelector="B" yChannelSelector="R" />
+    </filter>
+    <g id="Unit" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" stroke="var(--c1)">
+      <rect x="100" y="400" ry="5" width="50" height="50" transform-origin="100 400"
+        transform="skewY(45) scale(.6 1)" />
+      <rect x="100" y="400" ry="5" width="50" height="50" transform-origin="100 400" fill="rgba(0,0,0,0.5)"
+        transform="skewY(45) scale(.6 1)" />
+      <rect x="50" y="450" ry="5" width="50" height="50" transform-origin="50 450" transform="skewX(45) scale(1 .6)" />
+      <rect x="50" y="450" ry="5" width="50" height="50" transform-origin="50 450" fill="rgba(0,0,0,0.3)"
+        transform="skewX(45) scale(1 .6)" />
+      <rect x="50" y="400" ry="5" width="50" height="50" />
+      <rect x="50" y="400" ry="5" width="50" height="50" fill="var(--p1)" />
+    </g>
+    <g id="UnitH">
+      <use href="#Unit" />
+      <use href="#Unit" x="50" />
+    </g>
+    <g id="UnitV">
+      <use href="#Unit" y="-50" />
+      <use href="#Unit" />
+    </g>
+    <g id="I1" class="ic ccc">
+      <use href="#UnitV" y="-100" />
+      <use href="#UnitV" />
+    </g>
+    <g id="I2" class="ic ccc">
+      <use href="#UnitH" />
+      <use href="#UnitH" x="100" />
+    </g>
+    <g id="L1" class="lc ccc">
+      <use href="#UnitH" />
+      <use href="#UnitV" x="100" />
+    </g>
+    <g id="L2" class="lc ccc">
+      <use href="#UnitV" />
+      <use href="#UnitH" x="50" y="-50" />
+    </g>
+    <g id="C1" class="ccc" fill="var(--c5)" stroke="var(--c5)">
+      <use href="#UnitV" />
+      <use href="#UnitV" x="50" />
+    </g>
+    <g id="T1" class="tc ccc">
+      <use href="#Unit" y="-50" />
+      <use href="#UnitV" x="50" />
+      <use href="#Unit" y="-50" x="100" />
+    </g>
+    <use href="#Unit" x="50" id="TT1" class="tc ccc" />
+    <g id="S1" fill="var(--c4)" stroke="var(--c4)">
+      <use href="#UnitH" x="50" y="-50" />
+      <use href="#UnitH" />
+    </g>
+    <pattern id="p_1" patternUnits="userSpaceOnUse" width="50" height="50">
+      <rect class="ccc" width="50" height="50" ry="8" fill="none" stroke="var(--c1)" stroke-width="5" />
+      <path style="fill: var(--c3);filter: hue-rotate(180deg)"
+        d="m 8.22125,10.582081 v 5.24288 h 2.62144 v 2.62144 H 8.22125 v 5.24288 h 5.24288 v -3.93216 h 2.62144 v -5.24288 h -2.62144 v -3.93216 z m 25.69318,0 v 5.24288 h 2.62144 v 2.62144 h -2.62144 v 5.24288 h 5.24288 v -3.93216 h 2.62144 v -5.24288 h -2.62144 v -3.93216 z M 11.892801,28.932159 v 3.93216 h 2.62144 v 2.62144 h 2.62144 v 2.62144 h 2.62144 v 1.31072 h 3.93216 6.553599 v -1.31072 h 2.62144 v -2.62144 h 2.62144 v -2.62144 h 2.62144 v -3.93216 h -3.93216 v 2.62144 H 31.5536 v 2.62144 h -2.62144 v 1.31072 h -5.242879 -2.62144 v -1.31072 h -2.62144 v -2.62144 h -2.62144 v -2.62144 z" />
+    </pattern>
+    <filter id="select-highlight" width="200%" height="200%" x="-50%" y="-50%" filterRes="1000">
+      <feOffset in="SourceGraphic" result="offset" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComponentTransfer result="offsetmorph">
+        <feFuncA type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c3)" />
+      <feComposite operator="in" in2="offsetmorph" result="stroke" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComponentTransfer result="offsetmorph2">
+        <feFuncA type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c4)" />
+      <feComposite operator="in" in2="offsetmorph2" result="blur" />
+      <feGaussianBlur stdDeviation="5" />
+      <feComponentTransfer result="offsetmorph">
+        <feFuncA type="table" tableValues="0 0.05 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c5)" />
+      <feComposite operator="in" in2="offsetmorph" result="stroke2" />
+      <feGaussianBlur stdDeviation="5" />
+      <feComponentTransfer result="offsetmorph2">
+        <feFuncA type="table" tableValues="0 0.05 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c6)" />
+      <feComposite operator="in" in2="offsetmorph2" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="stroke2" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="stroke" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g class="gg">
+    <rect class="ccc" x="10" y="10" ry="45" width="480" height="480" fill="var(--c3)" stroke="var(--c6)"
+      stroke-width="10" />
+    <rect class="ccc" x="30" y="30" ry="30" width="440" height="440" fill="var(--c5)" stroke="var(--c4)"
+      stroke-width="10" />
+    <rect class="ccc" x="40" y="40" ry="20" width="420" height="420" fill="var(--c2)" stroke="var(--c3)" />
+    <clipPath id="clip">
+      <rect x="50" y="50" ry="5" width="400" height="400" />
+    </clipPath>
+    <g clip-path="url(#clip)" filter="var(--filter)">
+      <g class="S">
+        <use href="#I1" class="A2" />
+        <use href="#L2" x="50" y="-100" class="A7" />
+        <use href="#I2" x="200" y="-150" class="A8" />
+        <use href="#T1" x="100" y="-50" class="A6" />
+        <use href="#C1" x="50" class="A5" />
+        <use href="#TT1" x="100" y="-50" class="A6" />
+        <use href="#T1" x="250" y="-50" class="A4" />
+        <use href="#S1" x="150" class="A3" />
+        <use href="#TT1" x="250" y="-50" class="A4" />
+        <use href="#L1" x="250" class="A1" />
+      </g>
+    </g>
+    <rect x="50" y="50" ry="5" width="400" height="400" stroke="var(--c1)" stroke-width="3" fill="none" />
+    <g id="V">
+      <use id="TL" href="#I1" filter="url(#select-highlight)" style="transform-origin:50% 50%;x:110;y:-110"
+        transform="matrix(.40192 .43923 -.4177 .43923 150 -150)" />
+    </g>
+    <text x="60" y="75" class="text">level: 7</text><text x="60" y="75" class="text2" id="ttt1">level: 7</text><text
+      x="75" y="120" class="text t2">score: 3900</text><text x="75" y="120" class="text2 t2" id="ttt2">score:
+      3900</text>
+  </g>
+  <script>
+    // <![CDATA[
+    window.onload = () => {
+      const tloop = ["S1", "T1", "C1", "T1", "L2", "I2", "L1", "I1"];
+
+      const themes = [
+            `
+            :root {
+      --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: none;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A2 {
+      animation: animFromTop 3s forwards;
+    }
+    .A3,
+    .A4,
+    .A5,
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`,
+            `
+            :root {
+       --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: none;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A3 {
+      animation: animFromTop 3s forwards;
+    }
+    .A4,
+    .A5,
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`,
+            `
+            :root {
+       --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: none;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A4 {
+      animation: animFromTop 3s forwards;
+    }
+    .A5,
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`,
+            `
+            :root {
+       --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: animLine 0.5s 3s forwards;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A5 {
+      animation: animFromTop 3s forwards;
+    }
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`,
+            `
+            :root {
+       --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 50px;
+      --anim: animLine1 0.5s 3s forwards;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A6 {
+      animation: animFromTop 3s forwards;
+    }
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`,
+            `:root {
+      --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 100px;
+      --anim: animLine2 0.5s 3s forwards;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A7 {
+      animation: animFromTop 3s forwards;
+    }
+    .A8 {
+      opacity: 0;
+    }`,
+            `:root {
+      --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 150px;
+      --anim: animLine3 0.5s 3s forwards;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A8 {
+      animation: animFromTop 3s forwards;
+    }`, `:root {
+      --c1: #7500ff;
+      --c2: black;
+      --c3: #d6e70c;
+      --c4: #e6491f;
+      --c5: #e281f6;
+      --c6: #87e439;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim : none;
+      --anim2: float 8s ease-in-out infinite;
+      --filter: none;
+      will-change: transform;
+      background-color: var(--c1);
+    }
+    .A1 {
+      animation: animFromTop 3s forwards;
+    }
+    .A2,
+    .A3,
+    .A4,
+    .A5,
+    .A6,
+    .A7,
+    .A8 {
+      opacity: 0;
+    }`];
+
+      const tl = document.querySelector("#TL");
+      const stl = document.querySelector("#styletemplate");
+      const tt1 = document.querySelector("#ttt1");
+      const tt2 = document.querySelector("#ttt2");
+      let step = 0;
+      let level = 7;
+      let score = 3900;
+
+      const setScore = () => {
+      console.log("HoLLO")
+        setTimeout(() => {
+          tt1 .innerHTML = 'Level: '+ level;
+          tt2.innerHTML = 'Score: '+ score;
+        }, 3500);
+      }
+
+      setInterval(() => {
+        const s = step % 8;
+        tl.setAttribute('href', '#'+ tloop[s]);
+        stl.innerHTML = themes[s];
+        if(s === 6) {
+          level++
+        }
+        if (s >= 3 && s < 7) {
+          score += level * 100;
+        }
+
+        setScore();
+        step++;
+      }, 8000)
+    }
+    // ]]>
+  </script>
+</svg>

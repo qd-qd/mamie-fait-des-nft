@@ -1,0 +1,231 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --c3: #ff5d9e;
+      --c4: #8f71ff;
+      --c7: #8bffff;
+      --p3: url(#p_3);
+      --p2: url(#m-r);
+      --p4: url(#c-p);
+      --i: 0px;
+    }
+
+    text {
+      font-family: monospace;
+      font-size: 1.5em;
+      font-weight: bolder;
+    }
+
+    .fill-p4 {
+      fill: var(--p4);
+    }
+
+    .fill-c7 {
+      fill: var(--c7);
+      stop-color: var(--c7)
+    }
+
+    .PH1 {
+      x: 25;
+    }
+
+    .PH2 {
+      x: 50;
+    }
+
+    .PH3 {
+      x: 75;
+    }
+
+    .PH4 {
+      x: 100;
+    }
+
+    .PH5 {
+      x: 125;
+    }
+
+    .PV1 {
+      y: -25;
+    }
+
+    .PV2 {
+      y: -50;
+    }
+
+    .PV3 {
+      y: -75;
+    }
+
+    @keyframes animFromTop {
+      0% {
+        transform: translate(375px, -375px);
+      }
+    }
+
+    @keyframes animLine {
+      to {
+        transform: translate(calc(var(--i) * -1 - 25px), calc(var(--i) + 25px));
+      }
+    }
+
+    .S {
+      stroke-width: 2px;
+      stroke-linejoin: round;
+      stroke: black;
+    }
+
+    .R {
+      opacity: 1;
+    }
+
+    #f {
+      transform: translate(calc(var(--i) * -1), var(--i));
+      animation: -animLine 0.5s 3s forwards;
+    }
+
+    .A4 {
+      animation: animFromTop 3s forwards;
+    }
+
+    .N {
+      transform: skewX(45deg) translate(100px, -300px);
+    }
+
+    #Y {
+      transform: skewX(30deg) skewY(0deg);
+    }
+
+    .A2-,
+    .A3-,
+    .A4-,
+    .A5-,
+    .A6-,
+    .A7-,
+    .A8 {
+      opacity: 0;
+    }
+  </style>
+  <path id="bg" d="M0 0V600H600V0Z" style="fill: var(--bg" />
+  <defs>
+    <pattern id="p_3" patternUnits="userSpaceOnUse" width="5" height="10">
+      <path style="fill: var(--bg)" d="M 0 0v20h20v-20z" />
+      <line style="stroke: var(--c3)" x1="0" y="0" x2="0" y2="20" stroke-width="5" />
+      <animateTransform attributeType="xml" attributeName="patternTransform" type="translate" from="20 0" to="0 0"
+        begin="0" dur="3s" repeatCount="indefinite" />
+    </pattern>
+    <pattern id="p_2" patternUnits="userSpaceOnUse" width="25" height="25" patternTransform="skewX(-45)">
+      <line stroke="var(--bg)" x1="0" y="0" x2="0" y2="25" stroke-width="5" />
+      <line stroke="var(--bg)" x1="0" y="0" x2="25" y2="0" stroke-width="5" />
+    </pattern>
+    <path id="square" d="M-50 30H650V570H-50Z" />
+    <linearGradient id="c-p" x1="0" x2="0" y1="0" y2="1">
+      <stop style="fill:var(--c4);stop-color:var(--c4)" stop-opacity="0.6" />
+      <stop offset="1" class="fill-c7" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="m-r" x1="1" x2="0" y1="1" y2="0">
+      <stop style="fill:var(--c3);stop-color:var(--c3)" />
+      <stop offset="1" stop-opacity="1" class="fill-c7" />
+    </linearGradient>
+    <g>
+      <g id="I1" fill="orange">
+        <path fill="var(--p4)" d="M 75 475l 100 -100v25l-100 100z" />
+        <path d="M 50 475l 100 -100h25l-100 100z" />
+        <path fill="none" d="M 100 475v-25h-25m50 0v-25h-25m50 0v-25h-25" />
+        <path fill="var(--p4)" d="M 50 500v-25h25v25z" />
+      </g>
+      <g id="I2" fill="orange">
+        <path d="M 100 475l25-25h100l-25 25z" />
+        <path fill="var(--p4)" d="M 200 500v-25l25-25v25z" />
+        <path fill="var(--p4)" d="M 100 500v-25h100v25z" />
+        <path fill="none" d="M 125 500v-25l25-25h25l-25 25v25h25v-25l25-25" />
+      </g>
+      <g id="L1" fill="red">
+        <path fill="var(--p4)" d="M 125 475l50 -50v25l-50 50z" />
+        <path d="M 50 475l25 -25 50 0 25 -25 25 0 -50 50z" />
+        <path fill="var(--p4)" d="M 50 500v-25h75v25z" />
+        <path fill="none" d="M 75 500v-25l25-25m25 0l-25 25v25m50 -25v-25h-25" />
+      </g>
+      <g id="L2" fill="red">
+        <path d="M 100 475l50 -50h75l-25 25h-50l-25 25z" />
+        <path fill="var(--p4)" d="M 125 500v-25l25 -25h50l25-25v25l-25 25h-50z" />
+        <path fill="var(--p4)" d="M 100 500v-25h25v25z" />
+        <path fill="none" d="M 150 475v-25h-25h25l25-25h25l-25 25v25h25v-25" />
+      </g>
+      <g id="S1" fill="green">
+        <path d="M 50 475l25 -25h25l25 -25h50l-25 25h-25l-25 25z" />
+        <path fill="var(--p4)" d="M 100 475l25 -25 h25l25 -25v25l-25 25h-25l-25 25z" />
+        <path fill="var(--p4)" d="M 50 500v-25h50v25z" />
+        <path fill="none" d="M 75 500v-25l25 -25h25v25m25 0v-25m-25 0l25 -25" />
+      </g>
+      <g id="C1" fill="yellow">
+        <path d="M 50 475l50 -50h50l-50 50z" />
+        <path fill="var(--p4)" d="M100 475l50 -50v25l-50 50z" />
+        <path fill="var(--p4)" d="M 50 500v-25h50v25z" />
+        <path fill="none" d="M 75 500v-25l50 -50m-50 25h50v25" />
+      </g>
+      <g id="T1" fill="purple">
+        <path fill="var(--p4)" d="M 100 475v-25h25l-25 25z" />
+      </g>
+      <g id="T11" fill="purple">
+        <path d="M 100 475l25 -25h-25l25 -25h75l-25 25h-25l-25 25z" />
+        <path fill="var(--p4)" d="M 125 475l25-25h25l25-25v25l-25 25h-25l-25 25h-25v-25z" />
+        <path fill="none" d="M 150 475v-25h-25l25 -25h25l-25 25h25v25" />
+      </g>
+    </g>
+    <clipPath id="clip">
+      <path id="clipPath" d="M50 500v-26l325 -325h201v36l-325 325Z" />
+    </clipPath>
+    <filter id="pixelate">
+      <feTurbulence type="turbulence" baseFrequency="0.5" numOctaves="2" result="turbulence" />
+      <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+  </defs>
+  <g id="global">
+    <text class="fill-c7 RR">
+      <textPath href="#square" side="left" startOffset="0%" lengthAdjust="spacing" method="align" spacing="auto"
+        textLength="2480">
+        |#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81
+        <animate attributeName="startOffset" values="0%;-100%" dur="60s" repeatCount="indefinite" />
+      </textPath>
+    </text>
+    <text class="fill-c7 RR">
+      <textPath href="#square" side="left" startOffset="-100%" lengthAdjust="spacing" method="align" spacing="auto"
+        textLength="2480">
+        |#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81|#|0x7f970040dbfd9a6eb6c8307e6d3e3912f0cc9b81
+        <animate attributeName="startOffset" values="100%;0%" dur="60s" repeatCount="indefinite" />
+      </textPath>
+    </text>
+
+    <path id="inner" d="M-600 50V550H1200V50Z" stroke-width="5" style="fill:var(--c4)" />
+    <g class="N S" transform-origin="300 300">
+      <use href="#I2" />
+      <use href="#I22" />
+    </g>
+    <text x="25" y="525">
+      score: 0
+    </text>
+    <g transform-origin="300 300" id="Y">
+      <g clip-path="url(#clip)">
+        <g id="f" class="S">
+          <use href="#I1" class="A2" />
+          <use href="#L2" x="25" y="-50" class="A7" />
+          <use href="#I2" x="125" y="-75" class="A8" />
+          <use href="#T1" x="50" y="-25" class="A6" />
+          <use href="#C1" x="25" class="A5" />
+          <use href="#T11" x="50" y="-25" class="A6" />
+          <use href="#T1" x="125" y="-25" class="A4" />
+          <use href="#S1" x="75" class="A3" />
+          <use href="#T11" x="125" y="-25" class="A4" />
+          <use href="#L1" x="125" class="A1" />
+        </g>
+        <g class="R S">
+          <path fill="var(--p3)" d="M50 500v-25h200l325-325v25l-325 325z" />
+        </g>
+      </g>
+      <path d="M50 475l325-325h201l-325 325Z" fill="url(#p_2)" />
+    </g>
+  </g>
+</svg>

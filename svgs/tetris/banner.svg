@@ -1,0 +1,134 @@
+<svg viewBox="0 0 1500 500" height="500px" width="500px" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --c1: #D3F8E2;
+      --c2: #E4C1F9;
+      --c3: #F694C1;
+      --c4: #EDE7B1;
+      --c5: #A9DEF9;
+      --c6: #02A9EA;
+      --p1: url(#p_1);
+      --i: 0px;
+      --anim: animLine 0.5s 3s forwards;
+      will-change: transform;
+      background-color: var(--c1);
+      filter: none;
+    }
+
+    .lc {
+      fill: var(--c2);
+      stroke: var(--c2)
+    }
+
+    .ic {
+      fill: var(--c3);
+      stroke: var(--c3)
+    }
+
+    .tc {
+      fill: var(--c6);
+      stroke: var(--c6)
+    }
+  </style>
+  <path d="M0 0v500h1500V0z" fill="var(--c1)" />
+  <defs>
+    <g id="Unit" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" stroke="var(--c1)">
+      <rect x="100" y="400" ry="5" width="50" height="50" transform-origin="100 400"
+        transform="skewY(45) scale(.6 1)" />
+      <rect x="100" y="400" ry="5" width="50" height="50" transform-origin="100 400" fill="rgba(0,0,0,0.5)"
+        transform="skewY(45) scale(.6 1)" />
+      <rect x="50" y="450" ry="5" width="50" height="50" transform-origin="50 450" transform="skewX(45) scale(1 .6)" />
+      <rect x="50" y="450" ry="5" width="50" height="50" transform-origin="50 450" fill="rgba(0,0,0,0.3)"
+        transform="skewX(45) scale(1 .6)" />
+      <rect x="50" y="400" ry="5" width="50" height="50" />
+      <rect x="50" y="400" ry="5" width="50" height="50" fill="var(--p1)" />
+    </g>
+    <g id="UnitH">
+      <use href="#Unit" />
+      <use href="#Unit" x="50" />
+    </g>
+    <g id="UnitV">
+      <use href="#Unit" y="-50" />
+      <use href="#Unit" />
+    </g>
+    <g id="I1" class="ic">
+      <use href="#UnitV" y="-100" />
+      <use href="#UnitV" />
+    </g>
+    <g id="I2" class="ic">
+      <use href="#UnitH" />
+      <use href="#UnitH" x="100" />
+    </g>
+    <g id="L1" class="lc">
+      <use href="#UnitH" />
+      <use href="#UnitV" x="100" />
+    </g>
+    <g id="L2" class="lc">
+      <use href="#UnitV" />
+      <use href="#UnitH" x="50" y="-50" />
+    </g>
+    <g id="C1" fill="var(--c5)" stroke="var(--c5)">
+      <use href="#UnitV" />
+      <use href="#UnitV" x="50" />
+    </g>
+    <g id="T1" class="tc">
+      <use href="#Unit" y="-50" />
+      <use href="#UnitV" x="50" />
+      <use href="#Unit" y="-50" x="100" />
+    </g>
+    <use href="#Unit" x="50" id="TT1" class="tc" />
+    <g id="S1" fill="var(--c4)" stroke="var(--c4)">
+      <use href="#UnitH" x="50" y="-50" />
+      <use href="#UnitH" />
+    </g>
+    <pattern id="p_1" patternUnits="userSpaceOnUse" width="50" height="50">
+      <rect width="50" height="50" ry="8" fill="none" stroke="var(--c1)" stroke-width="5" />
+      <path fill="#4b414e"
+        d="m 8.22125,10.582081 v 5.24288 h 2.62144 v 2.62144 H 8.22125 v 5.24288 h 5.24288 v -3.93216 h 2.62144 v -5.24288 h -2.62144 v -3.93216 z m 25.69318,0 v 5.24288 h 2.62144 v 2.62144 h -2.62144 v 5.24288 h 5.24288 v -3.93216 h 2.62144 v -5.24288 h -2.62144 v -3.93216 z M 11.892801,28.932159 v 3.93216 h 2.62144 v 2.62144 h 2.62144 v 2.62144 h 2.62144 v 1.31072 h 3.93216 6.553599 v -1.31072 h 2.62144 v -2.62144 h 2.62144 v -2.62144 h 2.62144 v -3.93216 h -3.93216 v 2.62144 H 31.5536 v 2.62144 h -2.62144 v 1.31072 h -5.242879 -2.62144 v -1.31072 h -2.62144 v -2.62144 h -2.62144 v -2.62144 z" />
+    </pattern>
+    <filter id="select-highlight" width="200%" height="200%" x="-50%" y="-50%" filterRes="1000">
+      <feOffset in="SourceGraphic" result="offset" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComponentTransfer result="offsetmorph">
+        <feFuncA type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c3)" />
+      <feComposite operator="in" in2="offsetmorph" result="stroke" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComponentTransfer result="offsetmorph2">
+        <feFuncA type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c4)" />
+      <feComposite operator="in" in2="offsetmorph2" result="blur" />
+      <feGaussianBlur stdDeviation="5" />
+      <feComponentTransfer result="offsetmorph">
+        <feFuncA type="table" tableValues="0 0.05 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c5)" />
+      <feComposite operator="in" in2="offsetmorph" result="stroke2" />
+      <feGaussianBlur stdDeviation="5" />
+      <feComponentTransfer result="offsetmorph2">
+        <feFuncA type="table" tableValues="0 0.05 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+      </feComponentTransfer>
+      <feFlood flood-color="var(--c6)" />
+      <feComposite operator="in" in2="offsetmorph2" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="stroke2" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="stroke" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="40" y="40" ry="50" width="1420" height="420" fill="var(--c3)" stroke="var(--c6)" stroke-width="10" />
+  <rect x="60" y="60" ry="30" width="1380" height="380" fill="var(--c5)" stroke="var(--c4)" stroke-width="10" />
+  <rect x="80" y="80" ry="15" width="1340" height="340" fill="var(--c3)" stroke="var(--c2)" stroke-width="10" />
+  <rect x="100" y="100" ry="5" width="1300" height="300" stroke="var(--c1)" stroke-width="3" fill="var(--c1)" />
+  <use href="#S1" filter="url(#select-highlight)" style="x:200;y:-400" transform="rotate(45)" />
+  <use href="#I1" filter="url(#select-highlight)" style="x:630;y:-730" transform="rotate(45)" />
+  <use href="#T1" filter="url(#select-highlight)" style="x:750;y:-950" transform="rotate(45)" />
+  <use href="#L1" filter="url(#select-highlight)" style="x:900;y:-1160" transform="rotate(45)" />
+  <use href="#C1" filter="url(#select-highlight)" style="x:400;y:-600" transform="rotate(45)" />
+
+</svg>

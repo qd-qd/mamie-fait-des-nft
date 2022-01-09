@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="pixelate" x="-10%" y="-30%" width="120%" height="160%">
+    <!--Thanks to Zoltan Fegyver for figuring out pixelation and producing the awesome pixelation map. -->
+    <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
+    <feOffset in="smoothed" result="o" dx="60" dy="60" />
+    <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
+    <feImage width="5" height="5"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC"
+      result="displacement-map" />
+    <feTile in="displacement-map" result="pixelate-map" />
+    <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="50"
+      result="pre-final" />
+    <feComposite in="pre-final" in2="SourceGraphic" operator="arithmetic" k1="1" k2="1" k3="0" k4="0" />
+  </filter>
+</svg>
