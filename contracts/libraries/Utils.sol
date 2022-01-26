@@ -86,4 +86,55 @@ library Utils {
         }
         return 0;
     }
+
+    function getWeightedIndex(uint256 i, uint256 max)
+        internal
+        pure
+        returns (uint256)
+    {
+        return ((i % (max + 1)) + 1) % ((i % max) + 1);
+    }
+
+    function getBytesParams(uint256 targetId)
+        internal
+        pure
+        returns (string memory bytesParams)
+    {
+        for (uint8 i = 0; i < 9; i++) {
+            bytesParams = string(
+                abi.encodePacked(
+                    bytesParams,
+                    "--b",
+                    uint2str(i),
+                    ":",
+                    uint2str(getIndexAt(targetId, i)),
+                    ";"
+                )
+            );
+        }
+        return bytesParams;
+    }
+
+    function getSvgCircles(uint256 nbC)
+        internal
+        pure
+        returns (string memory circles)
+    {
+        for (uint16 j = 1; j <= nbC; j++) {
+            circles = string(
+                abi.encodePacked(
+                    circles,
+                    '<circle class="circle_',
+                    Utils.uint2str(j),
+                    '" cx="300" cy="',
+                    Utils.uint2str(300 - (j * 20)),
+                    '" r="',
+                    Utils.uint2str(j * 20),
+                    '" fill="url(#blobC_)" />'
+                )
+            );
+        }
+
+        return circles;
+    }
 }

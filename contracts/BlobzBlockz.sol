@@ -32,31 +32,37 @@
 */
 pragma solidity 0.8.11;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "base64-sol/base64.sol";
+
 import {Utils} from "./libraries/Utils.sol";
 import {SVGBlob} from "./libraries/SVGBlob.sol";
 
-contract LAVA is ERC721URIStorage, Ownable {
+contract BlobzBlockz is ERC721URIStorage {
+    address private _owner;
     uint256 public _tokenCounter;
-    event CreatedLAVA(uint256 indexed tokenId);
+    event CreatedBlobzBlockz(uint256 indexed tokenId);
 
     uint256 internal nonce;
-    uint16 internal constant SIZE = 600;
+    uint16 internal constant SIZE = 200;
+    uint256 public constant PRICE = 100000000000000000;
+    uint16 internal constant MAX_BLOBS = 9;
 
     uint256[] internal _mintableIds;
     mapping(uint256 => uint256) _mintedIds;
     mapping(uint256 => uint256) _timingIds;
     mapping(uint256 => uint256) _themeIds;
+    mapping(uint256 => uint256) _subThemeIds;
     mapping(uint256 => uint256) _themeAttrIds;
-    mapping(uint256 => uint256) _posIds;
-    mapping(uint256 => uint256) _posAttrIds;
+    mapping(uint256 => uint256) _nbBlobsIds;
+    mapping(uint256 => uint256[MAX_BLOBS * 2]) _posIds;
+    mapping(uint256 => uint256[MAX_BLOBS]) _scaleIds;
 
     uint256 public constant MAX_SUPPLY = 512;
+    uint256 public REMAINING_SUPPLY = 512;
 
-    constructor() ERC721("LAVA", "LAVA") {
+    constructor() ERC721("BLOBZ", "BlobzBlockz") {
+        _owner = msg.sender;
         _tokenCounter = 0;
         nonce = 0;
 
@@ -66,7 +72,9 @@ contract LAVA is ERC721URIStorage, Ownable {
     }
 
     string[] internal _themes;
+    string[] internal _subThemes;
     string[] internal _pos;
+    string[] internal _scale;
     string[] internal _timings;
 
     string internal _p0;
@@ -81,7 +89,8 @@ contract LAVA is ERC721URIStorage, Ownable {
         string memory p2,
         string memory p3,
         string memory p4
-    ) public onlyOwner {
+    ) public {
+        require(msg.sender == _owner, "Only owner");
         _p0 = p0;
         _p1 = p1;
         _p2 = p2;
@@ -89,42 +98,38 @@ contract LAVA is ERC721URIStorage, Ownable {
         _p4 = p4;
     }
 
-    function _setThemes(string[] memory themes) public onlyOwner {
+    function _setThemes(string[] memory themes, string[] memory subThemes)
+        public
+    {
+        require(
+            msg.sender == _owner && themes.length > 0 && subThemes.length > 0,
+            "Only owner"
+        );
         _themes = themes;
+        _subThemes = subThemes;
     }
 
-    function _addThemes(string[] memory themes) public onlyOwner {
-        for (uint8 i = 0; i < themes.length; i++) {
-            _themes.push(themes[i]);
-        }
-    }
-
-    function _setPos(string[] memory pos) public onlyOwner {
+    function _setPos(string[] memory pos) public {
+        require(msg.sender == _owner && pos.length > 0, "Only owner");
         _pos = pos;
     }
 
-    function _addPos(string[] memory pos) public onlyOwner {
-        for (uint8 i = 0; i < pos.length; i++) {
-            _pos.push(pos[i]);
-        }
+    function _setScale(string[] memory scale) public {
+        require(msg.sender == _owner && scale.length > 0, "Only owner");
+        _scale = scale;
     }
 
-    function _setTimings(string[] memory timings) public onlyOwner {
+    function _setTimings(string[] memory timings) public {
+        require(msg.sender == _owner && timings.length > 0, "Only owner");
         _timings = timings;
     }
 
-    function _addTimings(string[] memory timings) public onlyOwner {
-        for (uint8 i = 0; i < timings.length; i++) {
-            _timings.push(timings[i]);
-        }
-    }
-
     function totalSupply() external view returns (uint256) {
-        return _tokenCounter;
+        return MAX_SUPPLY - REMAINING_SUPPLY;
     }
 
     function preMint() internal returns (uint256) {
-        require(_tokenCounter < MAX_SUPPLY, "All tokens have been minted");
+        require(REMAINING_SUPPLY > 0, "All tokens have been minted");
         uint256 r = Utils.randomWithTimestamp(nonce, MAX_SUPPLY);
         uint256 newTokenIndex = r % _mintableIds.length;
         uint256 newTokenId = _mintableIds[newTokenIndex];
@@ -134,29 +139,63 @@ contract LAVA is ERC721URIStorage, Ownable {
         _mintedIds[_tokenCounter] = newTokenId;
 
         _timingIds[newTokenId] = newTokenId % _timings.length;
-        _posIds[newTokenId] = newTokenId % _pos.length;
-        _themeIds[newTokenId] = newTokenId % _themes.length;
+
+        for (uint16 i = 0; i < MAX_BLOBS * 2; i++) {
+            _posIds[newTokenId][i] = Utils.randomWithTimestamp(
+                nonce++,
+                _pos.length
+            );
+        }
+
+        for (uint16 i = 0; i < MAX_BLOBS; i++) {
+            _scaleIds[newTokenId][i] = Utils.randomWithTimestamp(
+                nonce++,
+                _scale.length
+            );
+        }
+
+        _themeIds[newTokenId] = Utils.getWeightedIndex(
+            newTokenId,
+            _themes.length
+        );
+
+        _subThemeIds[newTokenId] = Utils.randomWithTimestamp(
+            newTokenId,
+            _subThemes.length
+        );
+
+        _nbBlobsIds[newTokenId] =
+            MAX_BLOBS -
+            Utils.randomWithTimestamp(nonce++, 4);
 
         return newTokenId;
     }
 
     function mint() public payable {
+        require(
+            msg.sender == _owner || msg.value >= PRICE,
+            "Bitch better get my money! min 100000000000000 (0,001) required"
+        );
         uint256 newTokenId = preMint();
         _safeMint(msg.sender, _tokenCounter);
         _tokenCounter++;
+        REMAINING_SUPPLY--;
 
-        emit CreatedLAVA(newTokenId);
+        emit CreatedBlobzBlockz(newTokenId);
     }
 
-    function mintTo(address to) public payable {
+    function mintTo(address to) public {
+        require(msg.sender == _owner, "Only owner");
         uint256 newTokenId = preMint();
         _safeMint(to, _tokenCounter);
         _tokenCounter++;
+        REMAINING_SUPPLY--;
 
-        emit CreatedLAVA(newTokenId);
+        emit CreatedBlobzBlockz(newTokenId);
     }
 
-    function batchMint(uint256 _count) public payable {
+    function batchMint(uint256 _count) public {
+        require(msg.sender == _owner, "Only owner");
         uint256 maxCount = MAX_SUPPLY - _tokenCounter;
         uint256 count = _count;
         if (_count > maxCount) count = maxCount;
@@ -165,7 +204,8 @@ contract LAVA is ERC721URIStorage, Ownable {
         }
     }
 
-    function batchMintTo(address[] memory addresses) public payable {
+    function batchMintTo(address[] memory addresses) public {
+        require(msg.sender == _owner, "Only owner");
         uint256 maxCount = MAX_SUPPLY - _tokenCounter;
         uint256 count = addresses.length;
         if (addresses.length > maxCount) count = maxCount;
@@ -174,36 +214,9 @@ contract LAVA is ERC721URIStorage, Ownable {
         }
     }
 
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 tokenId
-    ) internal virtual override(ERC721) {
-        uint256 _targetID = _mintedIds[tokenId];
-        if (from != address(0) && _targetID >= 0) {
-            // TODO
-        }
-        ERC721._beforeTokenTransfer(from, to, tokenId);
-    }
-
-    function getBytesParams(uint256 targetId)
-        internal
-        pure
-        returns (string memory bytesParams)
-    {
-        for (uint8 i = 0; i < 9; i++) {
-            bytesParams = string(
-                abi.encodePacked(
-                    bytesParams,
-                    "--b",
-                    Utils.uint2str(i),
-                    ":",
-                    Utils.uint2str(Utils.getIndexAt(targetId, i)),
-                    ";"
-                )
-            );
-        }
-        return bytesParams;
+    function withdraw() public payable {
+        require(msg.sender == _owner, "Only owner");
+        payable(_owner).transfer(address(this).balance);
     }
 
     function generateSVG(uint256 targetId)
@@ -217,10 +230,9 @@ contract LAVA is ERC721URIStorage, Ownable {
             abi.encodePacked(
                 _p0,
                 _themes[_themeIds[targetId]],
-                _pos[_posIds[targetId]],
+                _subThemes[_subThemeIds[targetId]],
                 _timings[_timingIds[targetId]],
-                getBytesParams(targetId),
-                _p1
+                Utils.getBytesParams(targetId)
             )
         );
 
@@ -233,28 +245,35 @@ contract LAVA is ERC721URIStorage, Ownable {
         string memory c = "";
         string memory path = "";
 
-        for (uint16 i = 0; i < 6; i++) {
+        for (uint16 i = 0; i < _nbBlobsIds[targetId]; i++) {
             id = Utils.uint2str(i);
-            size = SIZE + (i * 25);
-            c = "";
+            size = 200 + (i * 25);
             nbC = i % 4;
 
-            for (uint16 j = 3; j > nbC; j--) {
-                c = string(
-                    abi.encodePacked(
-                        c,
-                        '<circle class="circle_',
-                        Utils.uint2str(j),
-                        '" cx="',
-                        Utils.uint2str(SIZE - (size / 2)),
-                        '" cy="',
-                        Utils.uint2str(SIZE - (size / 2)),
-                        '" r="',
-                        Utils.uint2str(j * 20),
-                        '" fill="url(#blobC_)" />'
-                    )
-                );
-            }
+            c = Utils.getSvgCircles(nbC);
+
+            path = SVGBlob.generateBlobPath(
+                uint32(size),
+                2 + i,
+                0,
+                uint32(targetId * 1000 + i),
+                0
+            );
+
+            parts[0] = string(
+                abi.encodePacked(
+                    parts[0],
+                    "--p",
+                    id,
+                    ": translate(",
+                    _pos[_posIds[targetId][(i * 2)]],
+                    "rem,",
+                    _pos[_posIds[targetId][(i * 2) + 1]],
+                    "rem) scale(",
+                    _scale[_scaleIds[targetId][i]],
+                    ");"
+                )
+            );
 
             parts[1] = string(
                 abi.encodePacked(
@@ -264,17 +283,9 @@ contract LAVA is ERC721URIStorage, Ownable {
                     '_" cx="300" cy="',
                     Utils.uint2str(300 + size / 3),
                     '" r="',
-                    Utils.uint2str((size / 2) + 75),
+                    Utils.uint2str(size + 75),
                     _p2
                 )
-            );
-
-            path = SVGBlob.generateBlobPath(
-                size,
-                5 - i,
-                (i % 5) + 3,
-                targetId + i,
-                0
             );
 
             parts[2] = string(
@@ -293,10 +304,11 @@ contract LAVA is ERC721URIStorage, Ownable {
             );
         }
 
+        parts[0] = string(abi.encodePacked(parts[0], _p1));
         parts[1] = string(abi.encodePacked(parts[1], _p3));
         parts[2] = string(abi.encodePacked(parts[2], _p4, "</svg>"));
 
-        for (uint16 i = 0; i <= 2; i++) {
+        for (uint16 i = 0; i < parts.length; i++) {
             svg = string(abi.encodePacked(svg, parts[i]));
         }
 
@@ -316,7 +328,21 @@ contract LAVA is ERC721URIStorage, Ownable {
         uint256 _targetID = _mintedIds[_tokenId];
         string memory svg = generateSVG(_targetID);
 
-        string memory attrs = string(abi.encodePacked('"attributes": []'));
+        string memory attrs = string(
+            abi.encodePacked(
+                '"attributes": [{"trait_type": "Color 1","value": "',
+                Utils.uint2str(_themeIds[_targetID]),
+                '"}, {"trait_type": "Color 2","value": "',
+                Utils.uint2str(_subThemeIds[_targetID]),
+                '"}, {"trait_type": "Speed","value": "',
+                Utils.uint2str(_timingIds[_targetID]),
+                '"}, {"trait_type": "Concentration","value": "',
+                Utils.uint2str(_nbBlobsIds[_targetID]),
+                '"}], "external_url": "https://w3b.bz/nft/blobbz/',
+                Utils.uint2str(_tokenId),
+                '"'
+            )
+        );
         return
             string(
                 abi.encodePacked(
@@ -324,11 +350,11 @@ contract LAVA is ERC721URIStorage, Ownable {
                     Base64.encode(
                         bytes(
                             abi.encodePacked(
-                                '{"name":"LAVA #',
+                                '{"name":"BlobzBlockz #',
                                 Utils.uint2str(_targetID),
-                                '", "description":"LAVA Token - #',
+                                '", "description":"BLOBZ Token - #',
                                 Utils.uint2str(_targetID),
-                                ' - ",',
+                                ' - fully chain generated and hosted, blobz art animations series each one is verifiably unique in shapes colors and animations",',
                                 attrs,
                                 ', "background_color": "#fff", "image":"data:image/svg+xml;base64,',
                                 Base64.encode(bytes(svg)),
