@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" preserveAspectRatio='xMidYMid meet'>
+  <style>
+    :root {
+      --bg: white;
+    }
+
+    @keyframes stpcA {
+
+      0%,
+      to {
+        stop-color: white;
+      }
+
+      50% {
+        stop-color: red;
+      }
+    }
+
+    #std {
+      animation: stpcA 12s linear infinite;
+    }
+
+    @keyframes reA {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-20px, -20px);
+      }
+    }
+
+    #re {
+      animation: reA 6s linear infinite;
+    }
+  </style>
+  <defs>
+    <radialGradient id="rg" cx="0.5" cy="0.5" r="0.5">
+      <stop id="std" offset="0%" />
+      <stop offset="100%" stop-color="black" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="star" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="black" />
+      <rect x="10" y="10" width="10" height="10" fill="black" />
+    </pattern>
+
+    <filter id="f" x="-50%" y="-50%" width="200%" height="200%">
+      <feImage
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cdefs%3E%3CradialGradient id='rg' cx='0.5' cy='0.5' r='0.6' %3E%3Cstop offset='0%25' stop-color='yellow' /%3E%3Cstop offset='100%25' stop-color='yellow' stop-opacity='0' /%3E%3C/radialGradient%3E%3CradialGradient id='gg' cx='0.7' cy='0.2' r='1' %3E%3Cstop offset='0%25' stop-color='red' /%3E%3Cstop offset='100%25' stop-color='red' stop-opacity='0' /%3E%3C/radialGradient%3E%3CradialGradient id='yg' cx='0.2' cy='0.7' r='1' %3E%3Cstop offset='0%25' stop-color='lime' /%3E%3Cstop offset='100%25' stop-color='lime' stop-opacity='0' /%3E%3C/radialGradient%3E%3Cfilter id='blur'%3E%3CfeGaussianBlur stdDeviation='13'%3E%3C/feGaussianBlur%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23blur)'%3E%3Ccircle r='200' cy='300' cx='300' fill='url(%23yg)' /%3E%3Ccircle r='200' cy='300' cx='300' fill='url(%23gg)' /%3E%3Ccircle r='200' cy='300' cx='300' fill='url(%23rg)' /%3E%3C/g%3E%3C/svg%3E"
+        result="pict2" />
+      <feDisplacementMap scale="1" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="pict2">
+        <animate attributeName="scale" values="1;100;1" dur="12s" repeatCount="indefinite" />
+      </feDisplacementMap>
+    </filter>
+    <clipPath id="cp">
+      <circle r="200" cy="300" cx="300" />
+    </clipPath>
+    <circle />
+  </defs>
+  <g>
+    <rect width="600" height="600" fill="var(--bg)" />
+    <rect width="620" height="620" fill="url(#star)" id="re" />
+    <circle r="200" cy="300" cx="300" fill="url(#rg)" />
+    <rect clip-path="url(#cp)" width="600" height="600" fill="url(#star)" filter="url(#f)" />
+  </g>
+</svg>

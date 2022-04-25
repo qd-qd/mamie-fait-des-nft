@@ -14,13 +14,17 @@
       --c4: hsl(240, 100%, 50%);
       --c5: hsl(300, 100%, 50%);
       --c6: hsl(360, 100%, 50%);
+
       --cc1: hsl(0 0% 0%);
-      --cc2: hsl(0 0% 10%);
-      --cc3: hsl(0 0% 20%);
-      --cc4: hsl(0 0% 30%);
-      --cc5: hsl(0 0% 800%);
-      --cc6: hsl(0 0% 100%);
-      --bg: hsl(0 0% 0%);
+      --cc2: hsl(0 0% 0%);
+      --cc3: hsl(0 0% 0%);
+      --cc4: hsl(0 0% 0%);
+      --cc5: hsl(0 0% 0%);
+      --cc6: hsl(0 0% 0%);
+      --bg: hsl(50deg 100% 50%);
+      --bdg: hsl(0deg 100% 50%);
+
+
       --t1: 16.666s;
       --t2: 20.2s;
       --t3: 33.3s;
@@ -42,6 +46,12 @@
       --p4: translate(0rem, 0.2rem) scale(-0.7, 0.7);
       --p5: translate(1rem, -1.2rem) scale(-1, 1);
       --p6: translate(-1.6rem, -0.3rem) scale(-0.8, 0.8);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: var(--bdg);
+      }
     }
 
     * {

@@ -30,7 +30,7 @@
 >> https://github.com/LFBarreto/mamie-fait-des-nft  <<
 >>>          inspired by blobshape.js              <<<
 */
-pragma solidity 0.8.11;
+pragma solidity 0.8.13;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "base64-sol/base64.sol";

@@ -5,7 +5,7 @@
 >> https://github.com/LFBarreto/mamie-fait-des-nft  <<
 */
 
-pragma solidity 0.8.11;
+pragma solidity 0.8.13;
 
 library Utils {
     /**

@@ -1,1 +1,439 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' preserveAspectRatio='xMidYMid meet'><style>:root {font-size: calc(60px + 9vw);--easing: cubic-bezier(0.65, 0, 0.35, 1);--p4:none;--p5:none;--p6:none;--p7:none;--p8:none;--c1:hsl(280,78%,69%);--c2:hsl(295,80%,68%);--c3:hsl(310,82%,67%);--c4:hsl(325,85%,66%);--c5:hsl(340,87%,65%);--c6:hsl(356,90%,64%);--cc1:hsl(335,100%,54%);--cc2:hsl(334,96%,53%);--cc3:hsl(333,86%,50%);--cc4:hsl(329,81%,46%);--cc5:hsl(323,76%,41%);--cc6:hsl(314,70%,36%);--bg:hsl(300,50%,80%);--t1: 26.8s;--t2: 29.2s;--t3: 23s;--t4: 67s;--t5: 123.456s;--b0:0;--b1:1;--b2:0;--b3:0;--b4:0;--b5:0;--b6:0;--b7:1;--b8:1;--p0: translate(-1.2rem,0rem) scale(-1, 1);--p1: translate(0rem,0.2rem) scale(-0.4, -0.4);--p2: translate(-0.4rem,0.3rem) scale(-0.4, -0.4);--p3: translate(1.6rem,-0.6rem) scale(0.7, 0.7);--p4: translate(-0.8rem,2rem) scale(0.4, -0.4);--p5: translate(-0.8rem,0.4rem) scale(-0.4, -0.4);--p6: translate(0.6rem,-0.8rem) scale(1, -1);--p7: translate(-1.6rem,-0.2rem) scale(-1, -1);}*{transform-origin: 50% 50%;}svg{background: var(--bg);}.sc1{stop-color: var(--c1);}.sc2{stop-color: var(--c2);}.sc3{stop-color: var(--c3);}.sc4{stop-color: var(--c4);}.sc5{stop-color: var(--c5);}.sc6{stop-color: var(--c6);}.scc1{stop-color: var(--cc1);}.scc2{stop-color: var(--cc2);}.scc3{stop-color: var(--cc3);}.scc4{stop-color: var(--cc4);}.scc5{stop-color: var(--cc5);}.scc6{stop-color: var(--cc6);}@keyframes anim_Iddle{0%,     to{  transform: translate(0rem, 0.5rem) scaleY(1.1);}  50%{  transform: translate(0rem, -0.5rem) scaleY(0.9);}}@keyframes anim_1{0%,     to{  transform: translate(0rem, 100vh) scale(0);}  5%{  transform: translate(0rem, 100vh) scale(1);}  95%{  transform: translate(0rem, -100vh) scale(1.2);}  99%{  transform: translate(0rem, -100vh) scale(0);}}@keyframes anim_2{50%{  transform: translate(0rem, -1rem) scale(0.7);}}@keyframes anim_C_Right{0%{  transform: translate(0, 0) scale(0);}  66%{  transform: translate(2rem, 2rem) scale(0.7);}  100%{  transform: translate(2.5rem, -2rem) scale(0);}}@keyframes anim_C_Top{0%{  transform: translateY(0) scale(0, 0);}  33%{  transform: translateY(-2rem) scale(0.8);}  100%{  transform: translateY(-1.5rem) scale(0, 0);}}@keyframes anim_C_Bot{0%{  transform: translateY(0) scale(0);}  33%{  transform: translate(-1rem, 2rem) scale(0.8);}  100%{  transform: translate(-1.5rem, -3rem) scale(0);}}.b{animation: anim_Iddle var(--t3) var(--easing) infinite;}.blob_0, #id0{transform: var(--p0);}.blob_0 g{animation: anim_2 var(--t1) var(--easing) infinite;}.blob_1, #id1{transform: var(--p1);}.blob_1 g{animation: anim_1 var(--t4) var(--easing) infinite;}.blob_2, #id2{transform: var(--p2);}.blob_2 g{animation: anim_2 var(--t3) var(--easing) infinite;}.blob_3 g, #id3{transform: var(--p3);}.blob_3{animation: anim_0 var(--t1) var(--easing) alternate-reverse infinite;}.blob_4 g{transform: var(--p4);}.blob_4{animation: anim_1 var(--t3) var(--easing) infinite;}.blob_5 path, #id5{transform: var(--p5);}.blob_5 path{animation: anim_C_Top var(--t5) var(--easing) alternate-reverse infinite;}.blob_6 g, #id6{transform: var(--p6);}.blob_6 path{animation: anim_C_Bot var(--t3) var(--easing) alternate-reverse infinite;}.blob_7 g, #id7{transform: var(--p7);}.blob_7{animation: anim_0 var(--t1) var(--easing) alternate-reverse infinite;}.blob_8 g, #id8{transform: var(--p8);}.blob_8 path{transform: var(--p8);animation: anim_1 var(--t2) var(--easing) alternate-reverse infinite;}.circle_1{animation: anim_C_Bot var(--t1) var(--easing) infinite;}.circle_2{animation: anim_C_Right var(--t2) var(--easing) infinite;}.circle_3{animation: anim_C_Top var(--t3) var(--easing) infinite;}@media (max-width: 330px){*{  animation: none !important;}}  </style>  <defs><filter id="goo"><feGaussianBlur in="r" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -10" /></filter><circle id="C0" class="circle__0" cx="300" cy="300" r="15" /><g id="layer_1" fill="url(#blobC_)"><use href="#C0" id="id4" fill-opacity="var(--b4)" style="stroke-width: 0.2rem" /><use href="#C0" id="id5" x="1rem" fill-opacity="var(--b5)" style="stroke-width: calc(0.2rem * var(--b5))" /><use href="#C0" id="id3" x="-1rem" fill-opacity="var(--b3)" style="stroke-width: calc(0.2rem * var(--b3))" /><use href="#C0" id="id7" y="1rem" fill-opacity="var(--b7)" style="stroke-width: calc(0.2rem * var(--b7))" /><use href="#C0" id="id1" y="-1rem" fill-opacity="var(--b1)" style="stroke-width: calc(0.2rem * var(--b5))" /><use href="#C0" id="id8" x="1rem" y="1rem" fill-opacity="var(--b8)" style="stroke-width: calc(0.2rem * var(--b8))" /><use href="#C0" id="id2" x="1rem" y="-1rem" fill-opacity="var(--b2)" style="stroke-width: calc(0.2rem * var(--b2))" /><use href="#C0" id="id6" x="-1rem" y="1rem" fill-opacity="var(--b6)" style="stroke-width: calc(0.2rem * var(--b6))" /><use href="#C0" id="id0" x="-1rem" y="-1rem" fill-opacity="var(--b0)" style="stroke-width: calc(0.2rem * var(--b0))" /></g><radialGradient id="blobC_" cx="300" cy="380" r="130" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="scc1" /><stop offset="0.1922" class="scc2" /><stop offset="0.3992" class="scc3" /><stop offset="0.6186" class="scc4" /><stop offset="0.8449" class="scc5" /><stop offset="1" class="scc6" /></radialGradient><radialGradient id="blob0_" cx="300" cy="366" r="275" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob1_" cx="300" cy="375" r="300" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob2_" cx="300" cy="383" r="325" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob3_" cx="300" cy="391" r="350" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob4_" cx="300" cy="400" r="375" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob5_" cx="300" cy="408" r="400" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob6_" cx="300" cy="416" r="425" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient><radialGradient id="blob7_" cx="300" cy="425" r="450" gradientUnits="userSpaceOnUse"><stop offset="1.020408e-002" class="sc1" /><stop offset="0.1922" class="sc2" /><stop offset="0.3992" class="sc3" /><stop offset="0.6186" class="sc4" /><stop offset="0.8449" class="sc5" /><stop offset="1" class="sc6" /></radialGradient></defs><g id="global" filter="url(#goo)"><use href="#layer_1" fill="none" stroke="var(--bg)" /><g class="b"><g class="blob_0"><g><path fill="url(#blob0_)" d="M146,120Q100,141,77,148Q54,156,77,111Q100,67,146,83Q193,100,146,120Z" /></g></g><g class="blob_1"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><path fill="url(#blob1_)" d="M139,141Q112,171,89,169Q66,168,89,121Q112,75,139,93Q166,112,139,141Z" /></g></g><g class="blob_2"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" /><path fill="url(#blob2_)" d="M147,151Q94,178,96,128Q98,79,149,102Q200,125,147,151Z" /></g></g><g class="blob_3"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" /><circle class="circle_3" cx="300" cy="240" r="60" fill="url(#blobC_)" /><path fill="url(#blob3_)" d="M176,172Q137,208,95,223Q54,238,95,136Q137,34,176,85Q216,137,176,172Z" /></g></g><g class="blob_4"><g><path fill="url(#blob4_)" d="M171,194Q99,239,94,142Q90,46,166,98Q243,150,171,194Z" /></g></g><g class="blob_5"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><path fill="url(#blob5_)" d="M189,221Q93,281,90,157Q88,34,187,98Q286,162,189,221Z" /></g></g><g class="blob_6"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" /><path fill="url(#blob6_)" d="M213,246Q93,317,97,181Q101,46,217,110Q333,175,213,246Z" /></g></g><g class="blob_7"><g><circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" /><circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" /><circle class="circle_3" cx="300" cy="240" r="60" fill="url(#blobC_)" /><path fill="url(#blob7_)" d="M234,261Q101,336,99,183Q97,31,232,109Q368,187,234,261Z" /></g></g></g></g><use href="#layer_1" stroke="none" /></svg>
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' preserveAspectRatio='xMidYMid meet'>
+  <style>
+    :root {
+      font-size: calc(60px + 9vw);
+      --easing: cubic-bezier(0.65, 0, 0.35, 1);
+      --p4: none;
+      --p5: none;
+      --p6: none;
+      --p7: none;
+      --p8: none;
+      --c1: hsl(280, 78%, 69%);
+      --c2: hsl(295, 80%, 68%);
+      --c3: hsl(310, 82%, 67%);
+      --c4: hsl(325, 85%, 66%);
+      --c5: hsl(340, 87%, 65%);
+      --c6: hsl(356, 90%, 64%);
+      --cc1: hsl(335, 100%, 54%);
+      --cc2: hsl(334, 96%, 53%);
+      --cc3: hsl(333, 86%, 50%);
+      --cc4: hsl(329, 81%, 46%);
+      --cc5: hsl(323, 76%, 41%);
+      --cc6: hsl(314, 70%, 36%);
+      --bg: hsl(300, 50%, 80%);
+      --t1: 26.8s;
+      --t2: 29.2s;
+      --t3: 23s;
+      --t4: 67s;
+      --t5: 123.456s;
+      --b0: 0;
+      --b1: 1;
+      --b2: 0;
+      --b3: 0;
+      --b4: 0;
+      --b5: 0;
+      --b6: 0;
+      --b7: 1;
+      --b8: 1;
+      --p0: translate(-1.2rem, 0rem) scale(-1, 1);
+      --p1: translate(0rem, 0.2rem) scale(-0.4, -0.4);
+      --p2: translate(-0.4rem, 0.3rem) scale(-0.4, -0.4);
+      --p3: translate(1.6rem, -0.6rem) scale(0.7, 0.7);
+      --p4: translate(-0.8rem, 2rem) scale(0.4, -0.4);
+      --p5: translate(-0.8rem, 0.4rem) scale(-0.4, -0.4);
+      --p6: translate(0.6rem, -0.8rem) scale(1, -1);
+      --p7: translate(-1.6rem, -0.2rem) scale(-1, -1);
+    }
+
+    * {
+      transform-origin: 50% 50%;
+    }
+
+    svg {
+      background: var(--bg);
+    }
+
+    .sc1 {
+      stop-color: var(--c1);
+    }
+
+    .sc2 {
+      stop-color: var(--c2);
+    }
+
+    .sc3 {
+      stop-color: var(--c3);
+    }
+
+    .sc4 {
+      stop-color: var(--c4);
+    }
+
+    .sc5 {
+      stop-color: var(--c5);
+    }
+
+    .sc6 {
+      stop-color: var(--c6);
+    }
+
+    .scc1 {
+      stop-color: var(--cc1);
+    }
+
+    .scc2 {
+      stop-color: var(--cc2);
+    }
+
+    .scc3 {
+      stop-color: var(--cc3);
+    }
+
+    .scc4 {
+      stop-color: var(--cc4);
+    }
+
+    .scc5 {
+      stop-color: var(--cc5);
+    }
+
+    .scc6 {
+      stop-color: var(--cc6);
+    }
+
+    @keyframes anim_Iddle {
+
+      0%,
+      to {
+        transform: translate(0rem, 0.5rem) scaleY(1.1);
+      }
+
+      50% {
+        transform: translate(0rem, -0.5rem) scaleY(0.9);
+      }
+    }
+
+    @keyframes anim_1 {
+
+      0%,
+      to {
+        transform: translate(0rem, 100vh) scale(0);
+      }
+
+      5% {
+        transform: translate(0rem, 100vh) scale(1);
+      }
+
+      95% {
+        transform: translate(0rem, -100vh) scale(1.2);
+      }
+
+      99% {
+        transform: translate(0rem, -100vh) scale(0);
+      }
+    }
+
+    @keyframes anim_2 {
+      50% {
+        transform: translate(0rem, -1rem) scale(0.7);
+      }
+    }
+
+    @keyframes anim_C_Right {
+      0% {
+        transform: translate(0, 0) scale(0);
+      }
+
+      66% {
+        transform: translate(2rem, 2rem) scale(0.7);
+      }
+
+      100% {
+        transform: translate(2.5rem, -2rem) scale(0);
+      }
+    }
+
+    @keyframes anim_C_Top {
+      0% {
+        transform: translateY(0) scale(0, 0);
+      }
+
+      33% {
+        transform: translateY(-2rem) scale(0.8);
+      }
+
+      100% {
+        transform: translateY(-1.5rem) scale(0, 0);
+      }
+    }
+
+    @keyframes anim_C_Bot {
+      0% {
+        transform: translateY(0) scale(0);
+      }
+
+      33% {
+        transform: translate(-1rem, 2rem) scale(0.8);
+      }
+
+      100% {
+        transform: translate(-1.5rem, -3rem) scale(0);
+      }
+    }
+
+    .b {
+      animation: anim_Iddle var(--t3) var(--easing) infinite;
+    }
+
+    .blob_0,
+    #id0 {
+      transform: var(--p0);
+    }
+
+    .blob_0 g {
+      animation: anim_2 var(--t1) var(--easing) infinite;
+    }
+
+    .blob_1,
+    #id1 {
+      transform: var(--p1);
+    }
+
+    .blob_1 g {
+      animation: anim_1 var(--t4) var(--easing) infinite;
+    }
+
+    .blob_2,
+    #id2 {
+      transform: var(--p2);
+    }
+
+    .blob_2 g {
+      animation: anim_2 var(--t3) var(--easing) infinite;
+    }
+
+    .blob_3 g,
+    #id3 {
+      transform: var(--p3);
+    }
+
+    .blob_3 {
+      animation: anim_0 var(--t1) var(--easing) alternate-reverse infinite;
+    }
+
+    .blob_4 g {
+      transform: var(--p4);
+    }
+
+    .blob_4 {
+      animation: anim_1 var(--t3) var(--easing) infinite;
+    }
+
+    .blob_5 path,
+    #id5 {
+      transform: var(--p5);
+    }
+
+    .blob_5 path {
+      animation: anim_C_Top var(--t5) var(--easing) alternate-reverse infinite;
+    }
+
+    .blob_6 g,
+    #id6 {
+      transform: var(--p6);
+    }
+
+    .blob_6 path {
+      animation: anim_C_Bot var(--t3) var(--easing) alternate-reverse infinite;
+    }
+
+    .blob_7 g,
+    #id7 {
+      transform: var(--p7);
+    }
+
+    .blob_7 {
+      animation: anim_0 var(--t1) var(--easing) alternate-reverse infinite;
+    }
+
+    .blob_8 g,
+    #id8 {
+      transform: var(--p8);
+    }
+
+    .blob_8 path {
+      transform: var(--p8);
+      animation: anim_1 var(--t2) var(--easing) alternate-reverse infinite;
+    }
+
+    .circle_1 {
+      animation: anim_C_Bot var(--t1) var(--easing) infinite;
+    }
+
+    .circle_2 {
+      animation: anim_C_Right var(--t2) var(--easing) infinite;
+    }
+
+    .circle_3 {
+      animation: anim_C_Top var(--t3) var(--easing) infinite;
+    }
+
+    @media (max-width: 330px) {
+      * {
+        animation: none !important;
+      }
+    }
+  </style>
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="r" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -10" />
+    </filter>
+    <circle id="C0" class="circle__0" cx="300" cy="300" r="15" />
+    <g id="layer_1" fill="url(#blobC_)">
+      <use href="#C0" id="id4" fill-opacity="var(--b4)" style="stroke-width: 0.2rem" />
+      <use href="#C0" id="id5" x="1rem" fill-opacity="var(--b5)" style="stroke-width: calc(0.2rem * var(--b5))" />
+      <use href="#C0" id="id3" x="-1rem" fill-opacity="var(--b3)" style="stroke-width: calc(0.2rem * var(--b3))" />
+      <use href="#C0" id="id7" y="1rem" fill-opacity="var(--b7)" style="stroke-width: calc(0.2rem * var(--b7))" />
+      <use href="#C0" id="id1" y="-1rem" fill-opacity="var(--b1)" style="stroke-width: calc(0.2rem * var(--b5))" />
+      <use href="#C0" id="id8" x="1rem" y="1rem" fill-opacity="var(--b8)"
+        style="stroke-width: calc(0.2rem * var(--b8))" />
+      <use href="#C0" id="id2" x="1rem" y="-1rem" fill-opacity="var(--b2)"
+        style="stroke-width: calc(0.2rem * var(--b2))" />
+      <use href="#C0" id="id6" x="-1rem" y="1rem" fill-opacity="var(--b6)"
+        style="stroke-width: calc(0.2rem * var(--b6))" />
+      <use href="#C0" id="id0" x="-1rem" y="-1rem" fill-opacity="var(--b0)"
+        style="stroke-width: calc(0.2rem * var(--b0))" />
+    </g>
+    <radialGradient id="blobC_" cx="300" cy="380" r="130" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="scc1" />
+      <stop offset="0.1922" class="scc2" />
+      <stop offset="0.3992" class="scc3" />
+      <stop offset="0.6186" class="scc4" />
+      <stop offset="0.8449" class="scc5" />
+      <stop offset="1" class="scc6" />
+    </radialGradient>
+    <radialGradient id="blob0_" cx="300" cy="366" r="275" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob1_" cx="300" cy="375" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob2_" cx="300" cy="383" r="325" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob3_" cx="300" cy="391" r="350" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob4_" cx="300" cy="400" r="375" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob5_" cx="300" cy="408" r="400" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob6_" cx="300" cy="416" r="425" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+    <radialGradient id="blob7_" cx="300" cy="425" r="450" gradientUnits="userSpaceOnUse">
+      <stop offset="1.020408e-002" class="sc1" />
+      <stop offset="0.1922" class="sc2" />
+      <stop offset="0.3992" class="sc3" />
+      <stop offset="0.6186" class="sc4" />
+      <stop offset="0.8449" class="sc5" />
+      <stop offset="1" class="sc6" />
+    </radialGradient>
+  </defs>
+  <g id="global" filter="url(#goo)">
+    <use href="#layer_1" fill="none" stroke="var(--bg)" />
+    <g class="b">
+      <g class="blob_0">
+        <g>
+          <path fill="url(#blob0_)" d="M146,120Q100,141,77,148Q54,156,77,111Q100,67,146,83Q193,100,146,120Z" />
+        </g>
+      </g>
+      <g class="blob_1">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <path fill="url(#blob1_)" d="M139,141Q112,171,89,169Q66,168,89,121Q112,75,139,93Q166,112,139,141Z" />
+        </g>
+      </g>
+      <g class="blob_2">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" />
+          <path fill="url(#blob2_)" d="M147,151Q94,178,96,128Q98,79,149,102Q200,125,147,151Z" />
+        </g>
+      </g>
+      <g class="blob_3">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" />
+          <circle class="circle_3" cx="300" cy="240" r="60" fill="url(#blobC_)" />
+          <path fill="url(#blob3_)" d="M176,172Q137,208,95,223Q54,238,95,136Q137,34,176,85Q216,137,176,172Z" />
+        </g>
+      </g>
+      <g class="blob_4">
+        <g>
+          <path fill="url(#blob4_)" d="M171,194Q99,239,94,142Q90,46,166,98Q243,150,171,194Z" />
+        </g>
+      </g>
+      <g class="blob_5">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <path fill="url(#blob5_)" d="M189,221Q93,281,90,157Q88,34,187,98Q286,162,189,221Z" />
+        </g>
+      </g>
+      <g class="blob_6">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" />
+          <path fill="url(#blob6_)" d="M213,246Q93,317,97,181Q101,46,217,110Q333,175,213,246Z" />
+        </g>
+      </g>
+      <g class="blob_7">
+        <g>
+          <circle class="circle_1" cx="300" cy="280" r="20" fill="url(#blobC_)" />
+          <circle class="circle_2" cx="300" cy="260" r="40" fill="url(#blobC_)" />
+          <circle class="circle_3" cx="300" cy="240" r="60" fill="url(#blobC_)" />
+          <path fill="url(#blob7_)" d="M234,261Q101,336,99,183Q97,31,232,109Q368,187,234,261Z" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <use href="#layer_1" stroke="none" />
+</svg>
