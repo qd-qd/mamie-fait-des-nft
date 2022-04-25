@@ -157,9 +157,10 @@ library SVGPixels {
         pure
         returns (string memory svg)
     {
-        svg = "";
-        for (uint16 j = 0; j < rects.length; j++) {
-            for (uint16 i = 0; i < rects[j].length; i++) {
+        uint256 numberOfRect = rects.length;
+        for (uint16 j; j < numberOfRect; ) {
+            uint256 rectLength = rects[j].length;
+            for (uint16 i; i < rectLength; ) {
                 svg = string(
                     abi.encodePacked(
                         svg,
@@ -173,6 +174,12 @@ library SVGPixels {
                         )
                     )
                 );
+                unchecked {
+                    i++;
+                }
+            }
+            unchecked {
+                j++;
             }
         }
 

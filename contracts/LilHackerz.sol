@@ -11,12 +11,22 @@ import "base64-sol/base64.sol";
 
 import {SVGPixels} from "./libraries/SVGPixels.sol";
 
-contract LilHackerz is ERC721URIStorage {
-    address private _owner;
-    uint256 private nonce;
-    uint256 public _tokenCounter;
-    event CreatedLilHackerz(uint256 indexed tokenId);
+error NotOwner();
+error NotEnoughMoney();
+error NonExistentToken();
 
+/*
+    TODO:
+        - Use LERC721 + URIStorage
+        - Constant string for SVGs ?
+        - Solve set forest ?
+        - Natspec
+*/
+
+contract LilHackerz is ERC721URIStorage {
+    address private immutable owner;
+    uint256 private immutable nonce;
+    uint256 public tokenCounter;
     uint256 public constant PRICE = 1 ether;
 
     mapping(uint256 => uint256) _headsIds;
@@ -26,9 +36,12 @@ contract LilHackerz is ERC721URIStorage {
     mapping(uint256 => uint256) _eyesIds;
     mapping(uint256 => uint256) _mouthsIds;
 
-    constructor() ERC721("LIL-HACKERZ", "LilHackerz") {
-        _owner = msg.sender;
-        _tokenCounter = 0;
+    event CreatedLilHackerz(uint256 indexed tokenId);
+
+    constructor(uint256 _nonce) ERC721("LIL-HACKERZ", "LilHackerz") {
+        owner = msg.sender;
+        tokenCounter = 0;
+        nonce = _nonce;
     }
 
     uint16[6][][] internal _heads;
@@ -38,86 +51,129 @@ contract LilHackerz is ERC721URIStorage {
     uint16[6][][] internal _eyes;
     uint16[6][][] internal _mouths;
 
-    string internal _p0 = "";
-    string internal _p1 = "";
+    string internal _p0;
+    string internal _p1;
 
-    function _setSvgParts(string memory p0, string memory p1) public {
-        require(msg.sender == _owner, "Only owner");
+    modifier isOwner() {
+        if (msg.sender != owner) revert NotOwner();
+        _;
+    }
+
+    modifier isMintable() {
+        if (msg.value < PRICE && msg.sender != owner) revert NotEnoughMoney();
+        _;
+    }
+
+    function _setSvgParts(string calldata p0, string calldata p1)
+        public
+        isOwner
+    {
         _p0 = p0;
         _p1 = p1;
     }
 
-    function _addHeads(uint16[6][][] calldata heads) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < heads.length; i++) {
+    function _addHeads(uint16[6][][] calldata heads) external isOwner {
+        uint256 length = heads.length;
+        for (uint16 i; i < length; ) {
             _heads.push(heads[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function _setHead(uint16[6][] calldata head, uint256 index) public {
-        require(msg.sender == _owner, "Only owner");
+    function _setHead(uint16[6][] calldata head, uint256 index)
+        external
+        isOwner
+    {
         _heads[index] = head;
     }
 
-    function _addHairs(uint16[6][][] calldata hairs) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < hairs.length; i++) {
+    function _addHairs(uint16[6][][] calldata hairs) external isOwner {
+        uint256 length = hairs.length;
+        for (uint16 i; i < length; ) {
             _hairs.push(hairs[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function _setHair(uint16[6][] calldata hair, uint256 index) public {
-        require(msg.sender == _owner, "Only owner");
+    function _setHair(uint16[6][] calldata hair, uint256 index)
+        external
+        isOwner
+    {
         _hairs[index] = hair;
     }
 
-    function _addHats(uint16[6][][] calldata hats) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < hats.length; i++) {
+    function _addHats(uint16[6][][] calldata hats) external isOwner {
+        uint256 length = hats.length;
+        for (uint16 i; i < length; ) {
             _hats.push(hats[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function _setHats(uint16[6][] calldata hat, uint256 index) public {
-        require(msg.sender == _owner, "Only owner");
+    function _setHats(uint16[6][] calldata hat, uint256 index)
+        external
+        isOwner
+    {
         _hats[index] = hat;
     }
 
-    function _addAccessories(uint16[6][][] calldata accessories) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < accessories.length; i++) {
+    function _addAccessories(uint16[6][][] calldata accessories)
+        external
+        isOwner
+    {
+        uint256 length = accessories.length;
+        for (uint16 i; i < length; ) {
             _accessories.push(accessories[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
     function _setAccessory(uint16[6][] calldata accesory, uint256 index)
-        public
+        external
+        isOwner
     {
-        require(msg.sender == _owner, "Only owner");
         _accessories[index] = accesory;
     }
 
-    function _addEyes(uint16[6][][] calldata eyes) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < eyes.length; i++) {
+    function _addEyes(uint16[6][][] calldata eyes) external isOwner {
+        uint256 length = eyes.length;
+        for (uint16 i; i < length; ) {
             _eyes.push(eyes[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function _setEyes(uint16[6][] calldata eye, uint256 index) public {
-        require(msg.sender == _owner, "Only owner");
+    function _setEyes(uint16[6][] calldata eye, uint256 index)
+        external
+        isOwner
+    {
         _eyes[index] = eye;
     }
 
-    function _addMouths(uint16[6][][] calldata mouths) public {
-        require(msg.sender == _owner, "Only owner");
-        for (uint16 i = 0; i < mouths.length; i++) {
+    function _addMouths(uint16[6][][] calldata mouths) external isOwner {
+        uint256 length = mouths.length;
+        for (uint16 i; i < length; ) {
             _mouths.push(mouths[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function _setMouth(uint16[6][] calldata mouth, uint256 index) public {
-        require(msg.sender == _owner, "Only owner");
+    function _setMouth(uint16[6][] calldata mouth, uint256 index)
+        external
+        isOwner
+    {
         _mouths[index] = mouth;
     }
 
@@ -126,7 +182,7 @@ contract LilHackerz is ERC721URIStorage {
         @param max max number to generate
         @return randomnumber uint256 random number generated
     */
-    function randomWithTimestamp(uint256 max) public view returns (uint256) {
+    function randomWithTimestamp(uint256 max) internal view returns (uint256) {
         uint256 randomnumber = uint256(
             keccak256(abi.encodePacked(block.timestamp, msg.sender, nonce))
         ) % max;
@@ -142,54 +198,42 @@ contract LilHackerz is ERC721URIStorage {
     }
 
     function preMint() internal {
-        _headsIds[_tokenCounter] = getWeightedIndex(
+        _headsIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _heads.length
         );
-        _hairsIds[_tokenCounter] = getWeightedIndex(
+        _hairsIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _hairs.length
         );
-        _hatsIds[_tokenCounter] = getWeightedIndex(
+        _hatsIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _hats.length
         );
-        _accessoriesIds[_tokenCounter] = getWeightedIndex(
+        _accessoriesIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _accessories.length
         );
-        _eyesIds[_tokenCounter] = getWeightedIndex(
+        _eyesIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _eyes.length
         );
-        _mouthsIds[_tokenCounter] = getWeightedIndex(
+        _mouthsIds[tokenCounter] = getWeightedIndex(
             randomWithTimestamp(100),
             _mouths.length
         );
     }
 
-    function mint() public payable {
-        require(
-            msg.sender == _owner || msg.value >= PRICE,
-            "Bitch better get my money! min 1 MATIC required"
-        );
+    function mintTo(address to) public payable isMintable {
         preMint();
-        _safeMint(msg.sender, _tokenCounter);
-        _tokenCounter++;
+        _safeMint(to, tokenCounter);
+        tokenCounter++;
 
-        emit CreatedLilHackerz(_tokenCounter);
+        emit CreatedLilHackerz(tokenCounter);
     }
 
-    function mintTo(address to) public payable {
-        require(
-            msg.sender == _owner || msg.value >= PRICE,
-            "Bitch better get my money! min 1 MATIC required"
-        );
-        preMint();
-        _safeMint(to, _tokenCounter);
-        _tokenCounter++;
-
-        emit CreatedLilHackerz(_tokenCounter);
+    function mint() external payable isMintable {
+        mintTo(msg.sender);
     }
 
     function mintToWithTraits(
@@ -200,33 +244,34 @@ contract LilHackerz is ERC721URIStorage {
         uint16 eye,
         uint16 mouth,
         uint16 accessory
-    ) public payable {
-        require(msg.sender == _owner, "Only owner can mint to with traits");
+    ) external payable isOwner {
+        _headsIds[tokenCounter] = head;
+        _hairsIds[tokenCounter] = hair;
+        _hatsIds[tokenCounter] = hat;
+        _accessoriesIds[tokenCounter] = accessory;
+        _eyesIds[tokenCounter] = eye;
+        _mouthsIds[tokenCounter] = mouth;
 
-        _headsIds[_tokenCounter] = head;
-        _hairsIds[_tokenCounter] = hair;
-        _hatsIds[_tokenCounter] = hat;
-        _accessoriesIds[_tokenCounter] = accessory;
-        _eyesIds[_tokenCounter] = eye;
-        _mouthsIds[_tokenCounter] = mouth;
+        _safeMint(to, tokenCounter);
+        tokenCounter++;
 
-        _safeMint(to, _tokenCounter);
-        _tokenCounter++;
-
-        emit CreatedLilHackerz(_tokenCounter);
+        emit CreatedLilHackerz(tokenCounter);
     }
 
-    function batchMintTo(address[] memory addresses) public {
-        require(msg.sender == _owner, "Only owner");
-        uint256 count = addresses.length;
-        for (uint256 i = 0; i < count; i++) {
+    function batchMintTo(address[] calldata addresses) external isOwner {
+        uint256 length = addresses.length;
+        for (uint256 i; i < length; ) {
             mintTo(addresses[i]);
+            unchecked {
+                i++;
+            }
         }
     }
 
-    function withdraw() public payable {
-        require(msg.sender == _owner, "Only owner");
-        payable(_owner).transfer(address(this).balance);
+    function withdraw() external payable isOwner {
+        // as the target of the withdraw if the owner, it is trustable
+        // that's why we don't check if the transaction succeed
+        owner.call{value: address(this).balance}("");
     }
 
     function generateSVG(uint256 targetId)
@@ -269,12 +314,9 @@ contract LilHackerz is ERC721URIStorage {
         override
         returns (string memory)
     {
-        require(
-            _exists(_tokenId),
-            "ERC721Metadata: URI query for nonexistent token"
-        );
-        string memory svg = generateSVG(_tokenId);
+        if (!_exists(_tokenId)) revert NonExistentToken();
 
+        string memory svg = generateSVG(_tokenId);
         string memory attrs = string(
             abi.encodePacked(
                 '"attributes": [{"trait_type": "Head","value": "',
